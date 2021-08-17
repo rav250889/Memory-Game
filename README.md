@@ -1,1 +1,1 @@
-WebSite address memory.rwdesigner.pl
+WebSite address http://memory.rwdesigner.pl
