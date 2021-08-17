@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+	<meta charset="utf-8">
+	<title>Memory Game</title>
+	<meta name="author" content="Rafał Wałach, tel. (48)730 341 343">
+	<meta name="description" content="Memory-Game">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="icon" type="image/x-icon" href="img/questionMark2.GIF"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<!--PRZYCISK ZMIANY JĘZYKA I LOGO-->
+	<header>
+		<div id="logo-container">
+			<div id="logo-start"><img id="img-logo-start" src="img/memory.png" alt="memory"></div>
+			<div id="logo-end"><img id="img-logo-end" src="img/memory.png" alt="memory"></div>
+		</div>
+		<div id="changeLanguage">
+           	<img id="fullscreen" src="img/fullscreen.png" alt="fullscreen.png">
+            <input type="button" id="changeLanguageBtn" value="PL">
+        </div>
+	</header>
+	
+<!--KONIEC PRZYCISK ZMIANY JĘZYKA I LOGO-->
+	<main>
+		
+<!--STRONA TYTUŁOWA-->
+		<section id="menu-start">
+			<img  id="img-start" src="img/memory.png" alt="memory.png">
+		</section>
+		<section id="menu-end">
+			<img id="img-end" src="img/memory.png" alt="memory.png">
+		</section>
+<!--KONIEC STRONA TYTUŁOWA-->
+	
+<!--MENU-->
+        <section id="menu">
+            <input type="text" id="nick" placeholder="Your nick" maxlength="6"><br>
+            <a class="newGame">New Game</a><br>
+            <a class="rankingList">Ranking List</a><br>
+            <a class="copyrights">Copyrights</a><br>
+            <a class="gameRules">Game Rules</a>
+            <div class="besttime"><span>Your Best Time</span>
+            	<table>
+            		<th>Easy</th>
+            		<th>Medium</th>
+            		<th>Hard</th>
+            		<tr>
+            			<td class="easyStorage"></td>
+            			<td class="mediumStorage"></td>
+            			<td class="hardStorage"></td>
+            		</tr>
+            	</table>
+            	<div id="easyStorage"></div>
+            	<div id="mediumStorage"></div>
+            	<div id="hardStorage"></div>
+            </div>
+        </section>
+<!--KONIEC MENU-->
+
+<!--DIFFICULTY-->	
+        <section id="difficulty">
+            <a id="easy">Easy</a><br>
+            <a id="medium">Medium</a><br>
+            <a id="hard">Hard</a><br>
+            <a class="backToMenu">Back To Menu</a><br>
+            <div class="besttime"><span>Your Best Time</span>
+            	<table>
+            		<th>Easy</th>
+            		<th>Medium</th>
+            		<th>Hard</th>
+            		<tr>
+            			<td class="easyStorage"></td>
+            			<td class="mediumStorage"></td>
+            			<td class="hardStorage"></td>
+            		</tr>
+            	</table>
+            	<div id="easyStorage"></div>
+            	<div id="mediumStorage"></div>
+            	<div id="hardStorage"></div>
+			</div>
+        </section>
+<!--KONIEC DIFFICULTY-->
+
+<!--RANKING LIST-->
+        <section id="rankingList">
+            <form>
+                <input class="tablebuttons" id="easyLevelList" type="button" value="Easy">
+                <input class="tablebuttons" id="mediumLevelList" type="button" value="Medium">
+                <input class="tablebuttons" id="hardLevelList" type="button" value="Hard">
+            </form>
+            <table id="easyTable" cellspacing="0">
+                <thead>
+                    <th>Nr</th>
+                    <th class="user">User</th>
+                    <th class="level">Difficulty</th>
+                    <th class="time">Time (s)</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="nr"><span class="gold">1</span></td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr"><span class="silver">2</span></td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr third"><span class="brown">3</span></td>
+                    <td class="easyuser third"></td>
+                    <td class="easylevel" data-file="thirdd"></td>
+                    <td class="easytime third"></td>
+                </tr>
+                <tr>
+                    <td class="nr">4</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">5</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">6</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">7</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">8</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">9</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td class="easytime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">10</td>
+                    <td class="easyuser"></td>
+                    <td class="easylevel"></td>
+                    <td id="lasteasyelement" class="easytime"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table id="mediumTable" cellspacing="0">
+                <thead>
+                    <th>Nr</th>
+                    <th class="user">User</th>
+                    <th class="level">Difficulty</th>
+                    <th class="time">Time (s)</th>
+                </thead>
+                <tr>
+                    <td class="nr"><span class="gold">1</span></td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr"><span class="silver">2</span></td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr third"><span class="brown">3</span></td>
+                    <td class="mediumuser third"></td>
+                    <td class="mediumlevel" data-file="thirdd"></td>
+                    <td class="mediumtime third"></td>
+                </tr>
+                <tr>
+                    <td class="nr">4</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">5</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">6</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">7</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">8</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">9</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td class="mediumtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">10</td>
+                    <td class="mediumuser"></td>
+                    <td class="mediumlevel"></td>
+                    <td id="lastmediumelement" class="mediumtime"></td>
+                </tr>
+            </table>
+            <table id="hardTable" cellspacing="0">
+                <thead>
+                    <th>Nr</th>
+                    <th class="user">User</th>
+                    <th class="level">Difficulty</th>
+                    <th class="time">Time (s)</th>
+                </thead>
+                <tr>
+                    <td class="nr"><span class="gold">1</span></td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr"><span class="silver">2</span></td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr third"><span class="brown">3</span></td>
+                    <td class="harduser third"></td>
+                    <td class="hardlevel" data-file="thirdd"></td>
+                    <td class="hardtime third"></td>
+                </tr>
+                <tr>
+                    <td class="nr">4</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">5</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">6</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">7</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">8</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">9</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td class="hardtime"></td>
+                </tr>
+                <tr>
+                    <td class="nr">10</td>
+                    <td class="harduser"></td>
+                    <td class="hardlevel"></td>
+                    <td id="lasthardelement" class="hardtime"></td>
+                </tr>
+            </table>
+            <div class="backToMenu">Back To Menu</div>
+            <div class="besttime"><span>Your Best Time</span>
+            	<table>
+            		<th>Easy</th>
+            		<th>Medium</th>
+            		<th>Hard</th>
+            		<tr>
+            			<td class="easyStorage"></td>
+            			<td class="mediumStorage"></td>
+            			<td class="hardStorage"></td>
+            		</tr>
+            	</table>
+            	<div id="easyStorage"></div>
+            	<div id="mediumStorage"></div>
+            	<div id="hardStorage"></div>
+			</div>
+        </section>
+<!--KONIEC RANKING LIST-->
+
+<!--COPYRIGHTS-->
+        <section id="copyrights">
+          <form>
+			   <input type="button" class="source-title" id="photoGameList" value="Game Of Photos">
+			   <input type="button" class="source-title" id="photoCuriositesList" value="Curiosites">
+			   <input type="button" class="source-title" id="authorList" value="Author">
+           </form>
+           <div class="table-scrolling">
+            <table cellspacing="0" id="gameOfPhotos">
+                <tbody>
+                    <td class="description">Carnotaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassic-world-fandom-polska/images/3/35/Karnotaur.jpg/revision/latest/top-crop/width/360/height/450?cb=20200226133047&path-prefix=pl">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Ankylosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/prehistoryczna/images/a/af/Jacob-baardse-ankylosaurus-render.jpg/revision/latest?cb=20190315113328&path-prefix=pl">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Brahiosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/b/ba/JWEBrachiosaurus.png/revision/latest?cb=20200116002132">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Dimetrodon</td>
+                    <td class="link"><a target="_blank" href="https://images2.sw-cdn.net/product/picture/710x528_28582183_15387128_1566265049.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Gorgosaurus</td>
+                    <td class="link"><a target="_blank" href="https://dinoanimals.pl/wp-content/uploads/2013/09/Gorgozaur.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Kecalkoatl</td>
+                    <td class="link"><a target="_blank" href="https://img4.dmty.pl//uploads/201806/1527872823_qwqecd_600.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Mosasaurus</td>
+                    <td class="link"><a target="_blank" href="https://qph.fs.quoracdn.net/main-qimg-8a0ae6039a3b5486432afdba7b5fcb8c">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Parasaurolophus</td>
+                    <td class="link"><a target="_blank" href="https://static.turbosquid.com/Preview/001306/007/DN/_600.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Plejosaur</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/plezjozaur2.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Pteranodon</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/pteranodon.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Allosaurus</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/rekonstrukcja-allozaura.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Diplodocus</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/diplodok.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Spinosaurus</td>
+                    <td class="link"><a target="_blank" href="https://s8.flog.pl/media/foto/8149381_spinozaur.jpg">Source Of Photo</a><br><br>
+                    <a target="_blank" href="http://dinozaury.info/galeria/spinozaur.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Tarbosaurus</td>
+                    <td class="link"><a target="_blank" href="https://i.ytimg.com/vi/xZDEJnKrwi4/maxresdefault.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Triceratops</td>
+                    <td class="link"><a target="_blank" href="https://animals.net/wp-content/uploads/2019/01/Triceratops-2-650x425.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Velociraptor Blue</td>
+                    <td class="link"><a target="_blank" href="https://i.redd.it/tels66irx4b11.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Velociraptor</td>
+                    <td class="link"><a target="_blank" href="https://i.ebayimg.com/images/g/E3sAAOSwXRpbLmKw/s-l400.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Yi qi</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/yiqi1.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Iguanodon</td>
+                    <td class="link"><a target="_blank" href="https://static.turbosquid.com/Preview/2014/05/27__10_02_49/Dinosaur_Iguanodon_Pose3_0.jpg9987c5de-a48d-4bcb-87e1-82c79d7b3531Default.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Tsintosaurus</td>
+                    <td class="link"><a target="_blank" href="https://samequizy.pl/wp-content/uploads/2020/04/images_fa523a7c7eb0.jpeg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Tyranosaurus</td>
+                    <td class="link"><a target="_blank" href="https://s.ciekawostkihistoryczne.pl/uploads/2018/10/Tyranozaur-mini.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Alamosaurus</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/alamozaur2.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Stegosaurus</td>
+                    <td class="link"><a target="_blank" href="http://dinozaury.info/galeria/stegozaur-park-jurajski.php">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Background</td>
+                    <td class="link"><a target="_blank" href="https://images5.alphacoders.com/105/thumb-350-1050598.jpg">Source Of Photo</a></td>
+                </tbody>
+            </table>
+
+            <table cellspacing="0" id="photosOfCuriosites">
+                <tbody>
+                    <td class="description">Allosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/4/41/Allothumb.png/revision/latest?cb=20190817153946">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Brahiosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/e/ed/Brachthumb.png/revision/latest?cb=20190817151858">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Carnotaurus</td>
+                    <td class="link"><a target="_blank" href="https://library.kissclipart.com/20180903/kfq/kissclipart-m-ms-jurassic-world-clipart-carnotaurus-tyrannosau-b4d93576436a4b8d.jpg">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Mosasaurus</td>
+                    <td class="link"><a target="_blank" href="https://i.pinimg.com/originals/5f/ea/cf/5feacf8140ff1051c393a8e88b2beb1f.png">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Pteranodon</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/a/a1/Pterathumb.png/revision/latest?cb=20191210104157">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Stegosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicpark/images/4/4c/Stegosaurus-detail-header.png/revision/latest?cb=20141230042616">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Tyranosaurus</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassic-park-wiki-polska/images/3/34/T-Rex_3.png/revision/latest?cb=20151129130640&path-prefix=pl">Source Of Photo</a></td>
+                </tbody>
+                <tbody>
+                    <td class="description">Triceratops</td>
+                    <td class="link"><a target="_blank" href="https://vignette.wikia.nocookie.net/jurassicworld-evolution/images/9/96/Trikethumb.png/revision/latest?cb=20190817153424">Source Of Photo</a></td>
+                </tbody>
+            </table>
+            <div id="personaldata">
+                <div class="data"><span id="name">Name: </span>Rafał Wałach</div>
+                <div class="data"><span id="phone">Phone: </span>+48 730-341-343</div>
+                <div class="data"><span id="email">Email: </span><a href="mailto:rafalwalach89@gmail.com">rafalwalach89@gmail.com</a></div>
+            </div>
+			</div>
+            <div class="backToMenu">Back To Menu</div>
+            <div class="besttime"><span>Your Best Time</span>
+            	<table>
+            		<th>Easy</th>
+            		<th>Medium</th>
+            		<th>Hard</th>
+            		<tr>
+            			<td class="easyStorage"></td>
+            			<td class="mediumStorage"></td>
+            			<td class="hardStorage"></td>
+            		</tr>
+            	</table>
+            	<div id="easyStorage"></div>
+            	<div id="mediumStorage"></div>
+            	<div id="hardStorage"></div>
+			</div>
+        </section>
+<!--KONIEC COPYRIGHTS-->
+
+<!--GAME RULES-->
+        <section id="gameRules">
+            <p>Explore the world of the dinosaurs by having fun and training your memory. When you start a new game, the clock starts measuring your time. Check your reflexes. Train it until you get to the top of the ranking list (at every levels of difficulty). Match all pairs of cards and you will find which dinosaur you drew. Any dinosaur what you draw have a one of the kind curiosites. The MEMORY game is a both fun and teaches.</p>
+            <div class="backToMenu">Back To Menu</div>
+            <div class="besttime"><span>Your Best Time</span>
+            	<table>
+            		<th>Easy</th>
+            		<th>Medium</th>
+            		<th>Hard</th>
+            		<tr>
+            			<td class="easyStorage"></td>
+            			<td class="mediumStorage"></td>
+            			<td class="hardStorage"></td>
+            		</tr>
+            	</table>
+            	<div id="easyStorage"></div>
+            	<div id="mediumStorage"></div>
+            	<div id="hardStorage"></div>
+			</div>
+        </section>
+<!--KONIEC GAME RULES-->
+
+<!--GRA POZIOM EASY-->
+        <section id="easy-game">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+<!--KONIEC GRA POZIOM EASY-->
+
+<!--GRA POZIOM MEDIUM-->
+        <section id="medium-game">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+<!--KONIEC GRA POZIOM MEDIUM-->
+
+<!--GRA POZIOM HARD-->
+        <section id="hard-game">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+<!--KONIEC GRA POZIOM HARD-->
+	</main>
+    
+<!--CURIOSITES-->
+    <section id="curiosites">
+        <div id="curiosites-img"></div>
+        <p class="opis"></p>
+        <div id="time"></div>
+        <div class="restart">One More Time</div>
+    </section>   
+<!--KONIEC CURIOSITES-->
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

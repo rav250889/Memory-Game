@@ -1,0 +1,1219 @@
+*
+{
+    margin: 0;
+    padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+    background-image: url(../img/mainBackground.jpg);
+    background-size: 100% 100%;
+    min-height: 100vh;
+}
+
+header
+{
+	display: none;
+}
+
+/*LOGO*/
+#logo-container
+{
+	overflow: hidden;
+	width: 50%;
+	float: left;
+	margin-top: 1%;
+	margin-bottom: 10%;
+	margin-left: 3%;
+}
+
+#logo-start img
+{
+	width: 100%;
+	margin-top: 5%;
+	transform: translateX(-100%);
+}
+
+#logo-end
+{
+	transform: rotateY(180deg);
+	transform: rotateZ(180deg);
+}
+
+#logo-end img
+{
+	width: 100%;
+	margin-top: 5%;
+	transform: translateX(-100%);
+}
+
+@keyframes logo-start
+{
+	from
+	{
+		transform: translateX(-100%);
+	}
+	to
+	{
+		transform: translateX(100%);
+	}
+}
+/*KONIEC LOGO*/
+/*-----------------------------------------------------------------------*/
+
+/*PRZYCISK ZMIANY JĘZYKA*/
+#changeLanguage
+{
+    float: right;
+    margin-right: 2%;
+    margin-top: 2%;
+	width: 40%;
+}
+
+#changeLanguageBtn
+{
+	float: right;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(213,213,213);
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 130%;
+    padding: 5px;
+    box-shadow: 2px 2px #FF8C00;
+    transition: 0.1s;
+	margin-right: 2%;
+}
+
+#changeLanguageBtn:active, #fullscreen:active
+{
+    transform: translateY(4px);
+    box-shadow: none;
+    transition: 0.1s;
+}
+/*KONIEC PRZYCISK ZMIANY JĘZYKA*/
+/*-----------------------------------------------------------------------*/
+
+/*BESTTIME*/
+
+.besttime
+{
+	clear: both;
+	display: none;
+	color: #fff;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 100%;
+	position: absolute;
+	bottom: 4%;
+	right: 4%;
+	margin-bottom: 3%;
+	width: 60%;
+	text-align: center;
+}
+
+.besttime table
+{
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.besttime table th
+{
+	border-right: 2px solid grey;
+	border-bottom: 2px solid grey;
+}
+
+.besttime table th:last-child
+{
+	border-right: none;
+}
+
+.besttime table td
+{
+	padding: 2%;
+	border-right: 2px solid grey;
+}
+
+.besttime table td:last-child
+{
+	border-right: none;;
+}
+/*KONIEC BESTTIME*/
+/*-----------------------------------------------------------------------*/
+
+/*FULLSCREEN*/
+#fullscreen
+{   
+	float: right;
+	width: 33.5px;
+    padding: 5px;
+	box-shadow: 2px 2px #FF8C00;
+    transition: 0.1s;
+	margin-right: 2%;
+	margin-left: 3%;
+}
+/*KONIEC FULLSCREEN*/
+/*-----------------------------------------------------------------------*/
+
+/*STRONA TYTUŁOWA*/
+#menu-start
+{
+    overflow: hidden;
+	width: 100%;
+}
+
+#menu-end
+{
+    overflow: hidden;
+	width: 100%;
+	transform: rotateY(180deg);
+	transform: rotateZ(180deg);
+}
+
+#menu-start img
+{
+	margin-top: 50%;
+	width: 200%;
+	animation: menu-start 3s both;
+}
+
+#menu-end img
+{
+	margin-top: 50%;
+	width: 200%;
+	transform: translateX(-100%);
+}
+
+@keyframes menu-start
+{
+	from
+	{
+		transform: translateX(-100%);
+	}
+	to
+	{
+		transform: translateX(50%);
+	}
+}
+/*KONIEC STRONA TYTUŁOWA*/
+/*-----------------------------------------------------------------------*/
+
+/*MENU I DIFFICULTY*/
+#menu, #difficulty
+{
+    margin-left: 2%;
+    clear: both;
+    display: none;
+}
+
+#menu input
+{
+    color: darkorange;
+    font-size: 100%;
+    font-family: serif;
+    border: none;
+    background: none;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    border-radius: 5px;
+    height: 5vh;
+    width: 25%;
+    margin-bottom: 1%;
+}
+
+::placeholder
+{
+    color: grey;
+}
+
+#menu a, #difficulty a
+{
+    cursor: pointer;
+    padding: 2% 0;
+    color: darkgray;
+    font-size: 130%;
+    line-height: 200%;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#menu a:active, #difficulty a:active
+{
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+.newGamePL, .rankingListPL, .copyrightsPL, .gameRulesPL
+{
+    display: none;
+}
+/*KONIEC MENU I DIFFICULTY*/
+/*-----------------------------------------------------------------------*/
+
+/*RANKING LIST*/
+#rankingList
+{
+	display: none;
+	clear: both;
+	position: relative;
+}
+
+#rankingList table:not(.besttime table)
+{  
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+    animation: table 1s forwards;
+}
+
+@keyframes table
+{
+    to
+    {
+        opacity: 1;
+    }
+}
+
+.gold
+{
+    color: goldenrod;
+}
+
+.silver
+{
+    color: #6D6D6D;
+}
+
+[data-file="thirdd"]
+{
+    border-bottom: 2px dotted grey;
+}
+
+.third
+{
+    border-bottom: 2px dotted grey;
+}
+
+.brown
+{
+    color: #9D4801;
+}
+
+form
+{
+    width: 100%;
+    margin: 1% auto;
+    display: flex;
+}
+
+.tablebuttons
+{
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background: none;
+    font-size: 100%;
+    font-family: Arial;
+    font-variant: small-caps;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#rankingList table th:not(.besttime table th)
+{
+    background: rgba(68,76,82,0.7);
+    border: 1px solid lightgrey;
+    color: darkgray;
+    font-size: 110%;
+    padding: 5px;
+    text-align: center;
+    border-top: none;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+#rankingList table td:not(.besttime table td)
+{
+    background: rgba(68,76,82,0.5);
+    border: 1px solid lightgrey;
+    color: darkgray;
+    font-size: 100%;
+    padding: 10px;
+    text-align: center;
+    border-bottom: none;
+    border-top: none;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+#rankingList table td:first-child:not(.besttime table td:first-child)
+{
+    border-left: none;
+	width: -50%;
+}
+
+#rankingList table td:last-child:not(.besttime table td:last-child)
+{
+    border-right: none;
+}
+
+#rankingList table th:first-child:not(.besttime table th:first-child)
+{
+    border-left: none;
+}
+
+#rankingList table th:last-child:not(.besttime table th:last-child)
+{
+    border-right: none;
+}
+
+.backToMenu, .restart
+{
+	margin-top: 30%;
+	cursor: pointer;
+    color: darkgray;
+    font-size: 150%;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: 0.2s;
+	text-align: center;
+}
+
+.restart
+{
+    color: darkgreen;
+    display: none;
+}
+
+#time
+{
+    color: darkorange;
+    font-size: 150%;
+    font-variant: small-caps;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: 0.2s;
+	text-align: center; 
+}
+
+.backToMenu:active, .restart:active
+{
+    opacity: 0.5;
+    transition: 0.2s;
+}
+
+/*KONIEC RANKING LIST*/
+/*-----------------------------------------------------------------------*/
+
+/*COPYRIGHTS*/
+#copyrights
+{
+	display: none;
+	clear: both;
+	position: relative;
+}
+
+.table-scrolling
+{
+	overflow-y: auto;
+	height: 60vh;
+}
+
+#copyrights table:not(.besttime table)
+{
+    width: 100%;
+    padding: 5px;
+    margin: 1% auto;
+    border-radius: 5px;
+}
+
+.authorOfGamePL
+{
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+#copyrights table td:not(.besttime table td)
+{
+    background: rgba(68,76,82,0.5);
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    padding: 5px;
+    height: 3vh;
+}
+
+#copyrights table td:first-child:not(.besttime table td:first-child)
+{
+	width: 50%;
+}
+
+.description
+{
+    color: #ccc;
+    font-size: 120%;
+    font-weight: bold;
+    font-family: Arial;
+    font-variant: small-caps;
+}
+
+.link
+{
+    text-align: right;
+}
+
+.link a
+{
+    text-decoration: none;
+    color: orange;
+    font-size: 120%;
+    font-family: Arial;
+    font-weight: bold;
+    font-variant: small-caps
+}
+
+.link a:active
+{
+    color: red;
+}
+
+#personaldata
+{
+    width: 100%;
+    margin: 1% auto;
+	background: rgba(68,76,82,0.5);
+}
+
+.data
+{
+    text-align: center;
+    color: #ccc;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: Arial;
+    font-variant: small-caps;
+    background-size: 100% 100%;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+a
+{
+    text-decoration: none;
+    color: #ccc;
+    font-variant: normal;
+    font-weight: none;
+}
+
+.source-title
+{
+	width: 100%;
+    padding: 4px;
+    border: none;
+    background: none;
+    font-size: 100%;
+    font-family: Arial;
+    font-variant: small-caps;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*KONIEC COPYRIGHTS*/
+/*-----------------------------------------------------------------------*/
+
+/*GAME RULES*/
+#gameRules
+{
+	display: none;
+        clear: both;
+	position: relative;
+}
+
+#gameRules p
+{
+	clear: both;
+	background: rgba(68,76,82,0.7);
+	width: 90%;
+	margin: 1% auto;
+	color: lightgray;
+	box-shadow: 2px 2px lightgray;
+	padding: 5px;
+	font-size: 110%;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-variant: small-caps;
+	line-height: 150%;
+	padding: 15px;
+}
+/*KONIEC GAME RULES*/
+/*-----------------------------------------------------------------------*/
+
+/*GRA POZIOM EASY*/
+#easy-game
+{
+	display: none;
+	clear: both;
+	display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#easy-game div
+{
+	display: none;
+    flex-basis: 30%;
+    flex-grow: 1;
+    height: 16.66vh;
+    border: 1px solid white;
+}
+/*KONIEC GRA POZIOM EASY*/
+/*-----------------------------------------------------------------------*/
+
+/*GRA POZIOM MEDIUM*/
+#medium-game
+{
+	display: none;
+	clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#medium-game div
+{
+	display: none;
+    flex-basis: 17%;
+    flex-grow: 1;
+    height: 16.66vh;
+    border: 1px solid #fff;
+}
+
+.brahiosaurus
+{
+    background: url("../img/smallTablet/smallbrahiozaur.png");
+    background-size: 100% 100%;
+}
+
+.dimetro
+{
+    background: url("../img/smallTablet/smalldimetrodon.jpg");
+    background-size: 100% 100%;
+}
+
+.gorgosaurus
+{
+    background: url("../img/smallTablet/smallgorgozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.karnotaur 
+{
+    background: url("../img/smallTablet/smallkarnotaur.jpg");
+    background-size: 100% 100%;
+}
+
+.kecalkoatl
+{
+	background: url("../img/smallTablet/smallkecalkoatl.jpg");
+	background-size: 100% 100%;
+}
+
+.mozazaur
+{
+    background: url("../img/smallTablet/smallmozazaur.jpg");
+    background-size: 100% 100%;
+}
+
+.stegozaur
+{
+    background: url("../img/smallTablet/smallstegozaur.jpg");
+    background-size: 100% 100%;;
+}
+
+.tyranozaur
+{
+    background: url("../img/smallTablet/smalltyranozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.velociraptor
+{
+    background: url("../img/smallTablet/smallvelociraptor.jpg");
+    background-size: 100% 100%;
+}
+
+.ankylozaur
+{
+    background: url("../img/smallTablet/smallankylozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.parazaurolof
+{
+    background: url("../img/smallTablet/smallparazaurolof.jpg");
+    background-size: 100% 100%;
+}
+
+.spinozaur
+{
+    background: url("../img/smallTablet/smallspinozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.triceratops
+{
+    background: url("../img/smallTablet/smalltriceratops.jpg");
+    background-size: 100% 100%;
+}
+
+.tsintozaur
+{
+    background: url("../img/smallTablet/smalltsintozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.velociraptorblue
+{
+    background: url("../img/smallTablet/smallvelociraptorblue.jpg");
+    background-size: 100% 100%;
+}
+
+.alamozaur
+{
+    background: url("../img/smallTablet/smallalamozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.allozaur
+{
+    background: url("../img/smallTablet/smallalllozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.diplodok
+{
+    background: url("../img/smallTablet/smalldiplodok.jpg");
+    background-size: 100% 100%;
+}
+
+.iguanodon
+{
+    background: url("../img/smallTablet/smalliguanodon.jpg");
+    background-size: 100% 100%;
+}
+
+.plejozaur
+{
+    background: url("../img/smallTablet/smallplejozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.pteronodon
+{
+    background: url("../img/smallTablet/smallpteronodon.jpg");
+    background-size: 100% 100%;
+}
+
+.spinozaur2
+{
+    background: url("../img/smallTablet/smallspinozaur2.jpg");
+    background-size: 100% 100%;
+}
+
+.tarbozaur
+{
+    background: url("../img/smallTablet/smalltarbozaur.jpg");
+    background-size: 100% 100%;
+}
+
+.yiqi
+{
+    background: url("../img/smallTablet/smallyiqi.jpg");
+    background-size: 100% 100%;
+}
+
+.questionMark
+{
+    background: url("../img/questionMark2.GIF");
+    background-size: 100% 100%;
+}
+
+.turnOff
+{
+    opacity: 0;
+}
+/*KONIEC GRA POZIOM MEDIUM*/
+/*-----------------------------------------------------------------------*/
+
+/*GRA POZIOM HARD*/
+#hard-game
+{
+	display: none;
+	clear: both;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#hard-game div
+{
+	display: none;
+    flex-basis: 15%;
+    flex-grow: 1;
+    height: 12.499vh;
+    border: 1px solid #fff;;
+}
+/*KONIEC GRA POZIOM HARD*/
+/*-----------------------------------------------------------------------*/
+
+#curiosites
+{
+    display: none;
+    padding-top: 5%;
+    clear: both;
+    margin: 0 auto;
+    background: rgba(68,76,82,0.5);
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+}
+
+#curiosites-img
+{
+    width: 95%;
+    height: 40vh;
+    margin: 0 auto;
+}
+
+.opis
+{
+    width: 70%;
+    margin: 1% auto;
+    line-height: 150%;
+    color: darkgray;
+    font-size: 110%;
+    font-family: Arial;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 2%;
+}
+
+/*MEDIA QUERIES DLA STRONA TYTUŁOWA I LOGO*/
+@media only screen and (min-width: 400px) and (orientation: landscape)
+{
+    #logo-container
+    {
+        width: 25%;
+        margin-left: 35%;
+        margin-bottom: 1%;
+    }
+    
+	body
+	{
+		background-image: url(../img/background.jpg);
+	}
+	
+	#menu-start img
+	{
+		margin-top: 5%;
+		width: 100%;
+	}
+
+	#menu-end img
+	{
+		margin-top: 5%;
+		width: 100%;
+	}
+		
+	@keyframes menu-start
+	{
+		from
+		{
+			transform: translateX(-100%);
+		}
+		to
+		{
+			transform: translateX(100%);
+		}
+	}
+
+	@keyframes menu-end
+	{
+		from
+		{
+			transform: translateX(-100%);
+		}
+		to
+		{
+			transform: translateX(100%);
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) and (orientation: portrait)
+{
+    
+    #logo-container
+    {
+        width: 40%;
+    }
+    
+	#menu-start img
+	{
+		margin-top: 30%;
+	}
+
+	#menu-end img
+	{
+		margin-top: 30%;
+	}
+    
+    #curiosites
+    {
+        padding-top: 15%;
+    }
+}
+
+/*KONIEC MEDIA QUERIES DLA STRONA TYTUŁOWA I LOGO*/
+/*-----------------------------------------------------------------------*/
+
+/*MEDIA QUERIES DLA SECTION*/
+@media only screen and (min-width: 400px) and (orientation: landscape)
+{
+	#changeLanguage
+	{
+		width: 20%;
+	}
+	
+    #menu, #difficulty
+    {
+        width: 30%;
+		margin: 0 auto;
+    }
+	
+	#menu input
+	{
+		width: 60%;
+		height: 8vh;
+	}
+	
+	#menu a, #difficulty a
+	{
+		font-size: 100%;
+		
+	}
+	
+	#copyrights table .description
+	{
+		font-size: 130%;
+	}
+
+	#copyrights table .link a
+	{
+		font-size: 65%;
+	}
+    
+    .restart
+    {
+        margin-top: 1%;
+    }
+    
+    #curiosites-img
+    {
+        width: 60%;
+        min-height: 40vh;
+        margin: 0 auto;
+    }
+	
+	.besttime
+	{
+		width: 40%;
+		font-size: 70%;
+	}
+	
+	.backToMenu
+	{
+		margin-top: 15%;
+	}
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape)
+{
+	#menu
+    {
+        width: 40%;
+    }
+	
+	#difficulty
+	{
+		width: 35%;
+	}
+}
+
+
+@media only screen and (min-width: 700px) and (orientation: landscape)
+{
+	#menu, #difficulty
+    {
+        width: 32%;
+    }
+		
+	#menu a, #difficulty a
+    {
+        font-size: 100%;
+    }
+}
+
+@media only screen and (min-width: 600px)
+{
+    #menu, #difficulty
+    {
+        font-size: 150%;
+    }
+		
+	#gameRules p
+	{
+		font-size: 150%;
+		
+	}
+    
+    .opis
+    {
+        font-size: 150%;
+    }
+	
+	#menu .besttime
+	{
+		font-size: 60%;
+	}
+	
+	.besttime
+	{
+		width: 40%;
+		font-size: 80%;
+	}
+	
+	.backToMenu
+	{
+		margin-top: 19%;
+	}
+	
+}
+
+@media only screen and (min-width: 928px) and (orientation: landscape)
+{
+	#menu, #difficulty
+    {
+        width: 25%;
+    }
+	
+	#copyrights table .description
+	{
+		font-size: 150%;
+	}
+
+
+	#copyrights table .link a
+	{
+		font-size: 80%;
+	}
+	
+	#menu .besttime
+	{
+		width: 30%;
+		font-size: 70%;
+	}
+	
+	.besttime
+	{
+		width: 30%;
+		font-size: 100%;
+	}
+}
+
+@media only screen and (min-width: 1280px) and (orientation: landscape)
+{
+	#menu
+    {
+        width: 20%;
+    }
+	
+	#difficulty
+	{
+		width: 16%;
+	}
+	
+	#menu a, #difficulty a
+	{
+		font-size: 120%;
+	}
+	
+	.backToMenu, .restart
+	{
+		margin-top: 2%;
+		font-size: 200%;
+	}
+	
+	#gameRules p
+	{
+		margin-top: 2%;
+		width: 45%;
+		padding: 20px;
+	}
+    
+    #curiosites
+    {
+        clear: both;
+        margin: 0 auto;
+        background: rgba(68,76,82,0.5);
+        width: 100%;
+        height: 100vh;
+        padding-top: 3%;
+    }
+    
+    .opis
+    {
+        width: 70%;
+        margin: 0 auto;
+        line-height: 150%;
+        color: darkgray;
+        font-size: 200%;
+        font-family: Arial;
+        text-align: center;
+        font-weight: bold;
+    }
+	
+	.besttime
+	{
+		width: 20%;
+		font-size: 100%;
+	}
+	
+	#menu .besttime
+	{
+		width: 20%;
+		font-size: 70%;
+	}
+	
+	.backToMenu
+	{
+		margin-top: 10%;
+		
+	}
+}
+
+@media only screen and (orientation: landscape)
+{
+/*RANKING LIST*/
+	form
+    {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+    }
+
+    .tablebuttons, .source-title
+    {
+        width: 60%;
+        padding: 5px;
+        border: none;
+        background: none;
+        font-size: 150%;
+        font-family: Arial;
+        font-variant: small-caps;
+        font-weight: bold;
+        cursor: pointer;
+    }
+	
+    #rankingList table:not(.besttime table)
+    {
+        padding: 20px;
+    }
+
+    #rankingList table th:not(.besttime table th)
+    {
+        border: 1px solid lightgrey;
+        color: darkgray;
+        font-size: 150%;
+        padding: 10px;
+        text-align: center;
+        border-top: none;
+        font-weight: bold;
+        font-family: Verdana;
+    }
+	
+    #rankingList table td:not(.besttime table td)
+    {
+        border: 1px solid lightgrey;
+        color: darkgray;
+        font-size: 150%;
+        padding: 10px;
+        text-align: center;
+        border-bottom: none;
+        border-top: none;
+        font-family: Verdana;
+        font-weight: bold;
+    }
+/*KONIEC RANKING LIST*/
+/*-----------------------------------------------------------------------*/
+	
+/*COPYRIGHTS*/
+	#copyrights
+	{
+		margin: 0 1%;
+	}
+	.authorOfGamePL
+    {
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .description
+    {
+        font-size: 180%;
+    }  
+
+    .link
+    {
+        font-size: 180%;
+    }
+
+    .data
+    {
+        font-size: 150%;
+    }
+/*KONIEC COPYRIHTS*/
+/*-----------------------------------------------------------------------*/
+	
+	#easy-game div
+    {
+        flex-basis: 15%;
+        flex-grow: 1;
+        height: 33.35vh;
+    }
+	
+	#medium-game div
+    {
+        flex-basis: 15%;
+        flex-grow: 1;
+        height: 19.99vh;
+    }
+	
+	#hard-game div
+    {
+        flex-basis: 12%;
+        flex-grow: 1;
+        height: 16.67vh;
+    }
+}
+
+
+/*KONIEC MEDIA QUERIES DLA SECTION*/
+/*-----------------------------------------------------------------------*/
